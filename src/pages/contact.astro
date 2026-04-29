@@ -1,0 +1,106 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/site/ContactForm';
+import { Ornament } from '../components/Star';
+import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+---
+
+<Layout title="Contact">
+  <section class="max-w-[1600px] mx-auto px-6 lg:px-12 pt-24 pb-12">
+    <div class="grid md:grid-cols-12 gap-8 items-end">
+      <div class="md:col-span-2">
+        <div class="font-mono text-xs text-brass tracking-[0.3em]">— 004</div>
+        <div class="eyebrow mt-2">Contact</div>
+      </div>
+      <div class="md:col-span-9">
+        <h1 class="display text-7xl md:text-[10rem] leading-[0.9] animate-fade-up">
+          Venez nous<br /><span class="serif-italic text-sage">rencontrer.</span>
+        </h1>
+        <p class="mt-8 text-lg text-foreground/75 max-w-2xl font-light leading-relaxed">
+          En boutique, par téléphone ou par mail — nous répondons toujours avec attention.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Ornament />
+
+  <section class="max-w-[1600px] mx-auto px-6 lg:px-12 py-12">
+    <div class="grid md:grid-cols-12 gap-16">
+      <div class="md:col-span-7">
+        <div class="font-mono text-xs text-brass tracking-[0.3em] mb-3">— Formulaire</div>
+        <h2 class="display text-5xl mb-3">Écrivez-nous<span class="serif-italic text-sage">.</span></h2>
+        <p class="text-sm text-muted-foreground mb-12">Nous revenons vers vous sous 48h ouvrées.</p>
+        <ContactForm client:load />
+      </div>
+
+      <aside class="md:col-span-4 md:col-start-9 space-y-10">
+        <div class="font-mono text-xs text-brass tracking-[0.3em] mb-3">— Coordonnées</div>
+
+        <div class="flex gap-5">
+          <div class="text-brass mt-1.5"><MapPin size={16} /></div>
+          <div class="flex-1 border-b border-border pb-6">
+            <div class="eyebrow mb-2">La boutique</div>
+            <div class="font-serif text-xl leading-snug text-noir">
+              20 rue Vigarozy<br />09500 Mirepoix<br /><span class="text-muted-foreground italic">Ariège, France</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-5">
+          <div class="text-brass mt-1.5"><Clock size={16} /></div>
+          <div class="flex-1 border-b border-border pb-6">
+            <div class="eyebrow mb-2">Horaires</div>
+            <div class="font-serif text-xl leading-snug text-noir">
+              Mardi — Samedi<br />10h — 12h30 · 14h30 — 19h<br />
+              <span class="text-muted-foreground italic text-base">Dimanche & lundi sur rendez-vous</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-5">
+          <div class="text-brass mt-1.5"><Phone size={16} /></div>
+          <div class="flex-1 border-b border-border pb-6">
+            <div class="eyebrow mb-2">Téléphone</div>
+            <div class="font-serif text-xl leading-snug text-noir">05 61 00 00 00</div>
+          </div>
+        </div>
+
+        <div class="flex gap-5">
+          <div class="text-brass mt-1.5"><Mail size={16} /></div>
+          <div class="flex-1 border-b border-border pb-6">
+            <div class="eyebrow mb-2">Email</div>
+            <div class="font-serif text-xl leading-snug text-noir">contact@maisonpatine.fr</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="eyebrow mb-4">Suivez-nous</div>
+          <div class="flex gap-3">
+            <a href="https://instagram.com/maisonpatine_" class="w-12 h-12 border border-border flex items-center justify-center hover:bg-noir hover:text-ivory hover:border-noir transition-all duration-500 text-xs font-mono">
+              IG
+            </a>
+            <a href="https://facebook.com" class="w-12 h-12 border border-border flex items-center justify-center hover:bg-noir hover:text-ivory hover:border-noir transition-all duration-500 text-xs font-mono">
+              FB
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="max-w-[1600px] mx-auto px-6 lg:px-12 py-24">
+    <div class="font-mono text-xs text-brass tracking-[0.3em] mb-3">— Plan</div>
+    <h2 class="display text-5xl md:text-6xl mb-12">
+      Trouvez-nous<span class="serif-italic text-sage">.</span>
+    </h2>
+    <div class="aspect-[16/9] md:aspect-[21/9] overflow-hidden frame shadow-deep">
+      <iframe
+        title="Plan Maison Patine"
+        src="https://www.google.com/maps?q=20+rue+Vigarozy+09500+Mirepoix&output=embed"
+        class="w-full h-full grayscale-[60%] contrast-[1.05]"
+        loading="lazy"
+      />
+    </div>
+  </section>
+</Layout>

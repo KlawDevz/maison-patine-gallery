@@ -1,0 +1,130 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Ornament, Star } from '../components/Star';
+import { ArrowUpRight } from "lucide-react";
+
+const univers = [
+  {
+    n: "I",
+    title: "Brocante",
+    sub: "Le geste du chineur",
+    img: "/assets/brocante.jpg",
+    text: "Mobilier d'époque, objets de curiosité, vaisselle ancienne, miroirs, luminaires. Notre cœur de métier : chiner pour vous l'inattendu — l'objet juste, celui qui devient signature.",
+    tags: ["Mobilier XVIIIᵉ", "Argenterie", "Curiosités", "Luminaires"],
+  },
+  {
+    n: "II",
+    title: "Décoration",
+    sub: "L'art de l'agencement",
+    img: "/assets/decoration.jpg",
+    text: "Une mise en scène pour intérieurs vivants. Textiles en lin, céramiques contemporaines, botaniques séchées : nous composons des univers où l'ancien dialogue avec aujourd'hui.",
+    tags: ["Lin & textiles", "Céramique", "Botanique", "Vases & poteries"],
+  },
+  {
+    n: "III",
+    title: "Artisanat",
+    sub: "Le savoir des mains",
+    img: "/assets/artisanat.jpg",
+    text: "Restauration, ébénisterie, tapisserie. Nous travaillons avec des artisans locaux pour redonner vie aux pièces et garantir un savoir-faire authentique.",
+    tags: ["Restauration", "Ébénisterie", "Patine", "Tapisserie"],
+  },
+];
+---
+
+<Layout title="Nos Univers">
+  {/* HERO */}
+  <section class="max-w-[1600px] mx-auto px-6 lg:px-12 pt-24 pb-12">
+    <div class="grid md:grid-cols-12 gap-8 items-end">
+      <div class="md:col-span-2">
+        <div class="font-mono text-xs text-brass tracking-[0.3em]">— 003</div>
+        <div class="eyebrow mt-2">Nos Univers</div>
+      </div>
+      <div class="md:col-span-9">
+        <h1 class="display text-7xl md:text-[10rem] leading-[0.9] animate-fade-up">
+          Trois manières<br />
+          d'aimer<span class="text-brass">.</span> <span class="serif-italic text-sage">le beau.</span>
+        </h1>
+        <p class="mt-8 text-lg text-foreground/75 max-w-2xl font-light leading-relaxed">
+          Bien que nous ne vendions pas en ligne, ces visuels donnent à voir
+          l'esprit de la sélection. Pour le reste — venez en boutique.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Ornament />
+
+  {/* SECTIONS */}
+  {univers.map((u, idx) => (
+    <section class="max-w-[1600px] mx-auto px-6 lg:px-12 py-24">
+      <div class={`grid md:grid-cols-12 gap-12 items-center ${idx % 2 === 1 ? "md:[&>div:first-child]:order-2" : ""}`}>
+        <div class="md:col-span-6 relative">
+          <div class="absolute -top-12 -left-2 numero z-0">{u.n}</div>
+          <div class="relative img-zoom aspect-[4/5] bg-muted frame shadow-deep z-10">
+            <img src={u.img} alt={u.title} loading="lazy" class="w-full h-full object-cover" />
+          </div>
+          <div class="mt-4 flex justify-between font-mono text-[0.65rem] uppercase tracking-[0.25em] text-muted-foreground">
+            <span>FIG. {u.n}</span>
+            <span>{u.sub}</span>
+          </div>
+        </div>
+        <div class="md:col-span-5 md:col-start-8">
+          <div class="eyebrow mb-3">Univers {u.n}</div>
+          <h2 class="display text-6xl md:text-7xl">{u.title}</h2>
+          <div class="serif-italic text-2xl text-sage mt-2">{u.sub}</div>
+          <p class="text-foreground/80 leading-relaxed text-lg font-serif font-light mt-8">{u.text}</p>
+          <ul class="flex flex-wrap gap-2 mt-10">
+            {u.tags.map((t) => (
+              <li class="px-4 py-2 border border-border text-[0.65rem] tracking-[0.2em] uppercase font-mono text-muted-foreground hover:text-noir hover:border-noir transition-colors">{t}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <Ornament />
+
+  {/* GALERIE */}
+  <section class="max-w-[1600px] mx-auto px-6 lg:px-12 py-20">
+    <div class="grid md:grid-cols-12 gap-8 mb-16">
+      <div class="md:col-span-2">
+        <div class="font-mono text-xs text-brass tracking-[0.3em]">— Galerie</div>
+      </div>
+      <h2 class="md:col-span-9 display text-5xl md:text-7xl">
+        Quelques pièces<br /><span class="serif-italic">choisies.</span>
+      </h2>
+    </div>
+    <div class="grid grid-cols-12 gap-4 md:gap-6">
+      <div class="col-span-6 md:col-span-4 img-zoom aspect-[3/4] frame"><img src="/assets/vase.jpg" alt="" loading="lazy" class="w-full h-full object-cover" /></div>
+      <div class="col-span-6 md:col-span-4 img-zoom aspect-[3/4] frame md:translate-y-12"><img src="/assets/chair.jpg" alt="" loading="lazy" class="w-full h-full object-cover" /></div>
+      <div class="col-span-12 md:col-span-4 img-zoom aspect-[3/4] frame"><img src="/assets/gilt.jpg" alt="" loading="lazy" class="w-full h-full object-cover" /></div>
+      <div class="col-span-6 md:col-span-6 img-zoom aspect-[4/3] frame md:-translate-y-8"><img src="/assets/portrait.jpg" alt="" loading="lazy" class="w-full h-full object-cover" /></div>
+      <div class="col-span-6 md:col-span-6 img-zoom aspect-[4/3] frame"><img src="/assets/texture-1.jpg" alt="" loading="lazy" class="w-full h-full object-cover" /></div>
+    </div>
+  </section>
+
+  {/* CTA SOMBRE */}
+  <section class="bg-noir text-ivory mt-24 relative overflow-hidden">
+    <div class="absolute -top-24 -right-12 font-display text-[20vw] text-ivory/5 leading-none pointer-events-none select-none">Patine</div>
+    <div class="relative max-w-[1600px] mx-auto px-6 lg:px-12 py-32">
+      <div class="grid md:grid-cols-12 gap-8 items-center">
+        <div class="md:col-span-7">
+          <Star class="w-10 h-10 text-brass mb-8 animate-spin-slow" />
+          <h2 class="display text-5xl md:text-7xl text-ivory">
+            Vous avez un meuble<br /><span class="serif-italic text-brass">à nous proposer ?</span>
+          </h2>
+        </div>
+        <div class="md:col-span-4 md:col-start-9">
+          <p class="text-ivory/75 font-light leading-relaxed">
+            Nous nous déplaçons en Ariège et alentours pour estimer
+            et acheter mobiliers et objets anciens.
+          </p>
+          <a href="/contact" class="btn-ghost mt-8 inline-block">
+            Démarrer la conversation <ArrowUpRight size={14} />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

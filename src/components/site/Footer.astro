@@ -1,0 +1,61 @@
+---
+import { Mail, Phone, MapPin } from "lucide-react";
+import { Star as StarIcon } from "../Star";
+---
+
+<footer class="mt-32 bg-noir text-ivory relative overflow-hidden">
+  <div class="border-b border-ivory/15 py-8 overflow-hidden">
+    <div class="marquee font-display text-5xl text-ivory/85">
+      {Array.from({ length: 6 }).map(() => (
+        <span class="flex items-center gap-12">
+          Brocante <StarIcon class="w-5 h-5 text-brass shrink-0" />
+          Décoration <StarIcon class="w-5 h-5 text-brass shrink-0" />
+          Artisanat <StarIcon class="w-5 h-5 text-brass shrink-0" />
+        </span>
+      ))}
+    </div>
+  </div>
+
+  <div class="max-w-[1600px] mx-auto px-6 lg:px-12 py-24 grid md:grid-cols-12 gap-12">
+    <div class="md:col-span-5">
+      <div class="flex items-center gap-4 mb-8">
+        <StarIcon class="w-9 h-9 text-brass" />
+        <div class="font-display text-2xl">Maison Patine</div>
+      </div>
+      <p class="font-serif text-2xl italic font-light leading-relaxed max-w-md text-ivory/85">
+        « Chineurs d'histoires et d'objets intemporels au cœur de la cité médiévale de Mirepoix. »
+      </p>
+      <div class="flex gap-3 mt-10">
+        <a href="https://instagram.com/maisonpatine_" aria-label="Instagram" class="w-11 h-11 border border-ivory/30 flex items-center justify-center hover:bg-brass hover:border-brass hover:text-noir transition-all duration-500 text-xs font-mono">IG</a>
+        <a href="https://facebook.com" aria-label="Facebook" class="w-11 h-11 border border-ivory/30 flex items-center justify-center hover:bg-brass hover:border-brass hover:text-noir transition-all duration-500 text-xs font-mono">FB</a>
+      </div>
+    </div>
+
+    <div class="md:col-span-3">
+      <div class="eyebrow text-ivory/60 mb-6">La Boutique</div>
+      <ul class="space-y-3 text-ivory/85 font-serif text-lg">
+        <li class="flex items-start gap-3"><MapPin size={16} class="mt-1.5 shrink-0 text-brass" /><span class="leading-tight">20 rue Vigarozy<br />09500 Mirepoix</span></li>
+      </ul>
+      <div class="eyebrow text-ivory/60 mb-3 mt-8">Horaires</div>
+      <p class="text-sm text-ivory/70 leading-relaxed">Mardi — Samedi<br />10h — 12h30 · 14h30 — 19h</p>
+    </div>
+
+    <div class="md:col-span-4">
+      <div class="eyebrow text-ivory/60 mb-6">Contact</div>
+      <ul class="space-y-3 text-ivory/85 font-serif text-lg">
+        <li class="flex items-center gap-3"><Mail size={16} class="text-brass" />contact@maisonpatine.fr</li>
+        <li class="flex items-center gap-3"><Phone size={16} class="text-brass" />05 61 00 00 00</li>
+      </ul>
+      <a href="/contact" class="btn-editorial mt-10 text-ivory" style="color: var(--color-ivory)">
+        Prendre contact →
+      </a>
+    </div>
+  </div>
+
+  <div class="border-t border-ivory/15">
+    <div class="max-w-[1600px] mx-auto px-6 lg:px-12 py-6 text-xs font-mono text-ivory/50 flex flex-col md:flex-row justify-between gap-2">
+      <div>© {new Date().getFullYear()} MAISON PATINE — TOUS DROITS RÉSERVÉS</div>
+      <div>MIREPOIX · ARIÈGE · FRANCE</div>
+    </div>
+  </div>
+</footer>

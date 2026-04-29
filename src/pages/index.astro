@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Star } from '../components/Star';
+import { Ornament } from '../components/Star';
+---
+
+<Layout title="Accueil">
+  <section class="relative h-screen flex items-center justify-center overflow-hidden bg-noir">
+    <!-- Hero Background Image -->
+    <img src="/assets/hero.jpg" alt="Maison Patine Hero" class="absolute inset-0 w-full h-full object-cover opacity-60 grayscale-[0.2]" />
+    
+    <div class="relative z-10 text-center px-6 max-w-4xl">
+      <div class="flex justify-center mb-8 animate-fade-in">
+        <Star class="w-16 h-16 text-brass" />
+      </div>
+      
+      <h1 class="font-display text-6xl md:text-8xl lg:text-9xl text-ivory tracking-tight leading-[0.9] mb-8 animate-reveal">
+        L'art de la <br />
+        <span class="italic font-serif font-light text-brass">Patine</span>
+      </h1>
+      
+      <p class="font-serif text-xl md:text-2xl text-ivory/80 italic font-light max-w-2xl mx-auto mb-12 leading-relaxed animate-fade-in-delayed">
+        Objets de curiosité, mobilier d'exception et trésors oubliés.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-delayed-2">
+        <a href="/nos-univers" class="btn-editorial px-8 py-4 text-ivory hover:bg-brass hover:text-noir transition-all duration-500">
+          Découvrir nos Univers →
+        </a>
+        <a href="/contact" class="font-sans text-sm tracking-widest uppercase text-ivory/60 hover:text-ivory transition-colors duration-500">
+          Nous Visiter
+        </a>
+      </div>
+    </div>
+    
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce-slow">
+      <div class="w-px h-12 bg-gradient-to-b from-brass to-transparent"></div>
+    </div>
+  </section>
+
+  <section class="py-32 px-6 lg:px-12 max-w-[1600px] mx-auto">
+    <div class="grid md:grid-cols-2 gap-24 items-center">
+      <div class="relative aspect-[4/5] overflow-hidden group">
+        <img src="/assets/hero-cinematic.jpg" alt="Maison Patine Cinematic" class="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-brass/30 m-8"></div>
+      </div>
+      
+      <div class="space-y-8">
+        <div class="eyebrow text-brass uppercase tracking-widest text-sm">L'esprit Maison Patine</div>
+        <h2 class="font-display text-4xl md:text-6xl text-noir leading-tight">
+          Une invitation au <br /> voyage temporel.
+        </h2>
+        <p class="font-serif text-xl text-noir/70 italic font-light leading-relaxed">
+          « Chaque objet a une âme, chaque patine raconte une histoire. Nous dénichons pour vous des pièces qui traversent les siècles pour sublimer vos intérieurs. »
+        </p>
+        <div class="pt-6">
+          <Ornament />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
