@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ContactForm from '../components/site/ContactForm';
+import ContactForm from '../components/site/ContactForm.astro';
 import { Ornament } from '../components/Star';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 ---
@@ -31,7 +31,7 @@ import { Mail, Phone, MapPin, Clock } from 'lucide-react';
         <div class="font-mono text-xs text-brass tracking-[0.3em] mb-3">— Formulaire</div>
         <h2 class="display text-5xl mb-3">Écrivez-nous<span class="serif-italic text-sage">.</span></h2>
         <p class="text-sm text-muted-foreground mb-12">Nous revenons vers vous sous 48h ouvrées.</p>
-        <ContactForm client:load />
+        <ContactForm />
       </div>
 
       <aside class="md:col-span-4 md:col-start-9 space-y-10">

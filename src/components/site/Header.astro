@@ -1,0 +1,114 @@
+---
+import { Star } from "../Star";
+
+const nav = [
+  { href: "/", label: "Accueil" },
+  { href: "/notre-maison", label: "Notre Maison" },
+  { href: "/nos-univers", label: "Nos Univers" },
+  { href: "/contact", label: "Contact" },
+] as const;
+---
+
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-700 bg-gradient-to-b from-noir/40 to-transparent">
+  <div id="site-header-inner" class="max-w-[1600px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between transition-colors duration-700 text-ivory">
+    <a href="/" class="flex items-center gap-4 group">
+      <Star class="w-9 h-9 text-brass transition-transform duration-1000 group-hover:rotate-[180deg] shrink-0" />
+      <div class="leading-none">
+        <div class="font-display text-2xl tracking-wide">Maison Patine</div>
+        <div id="site-header-subtitle" class="eyebrow text-[0.55rem] mt-1.5 text-ivory/70">Mirepoix · Est. 2014</div>
+      </div>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-12">
+      {nav.map((n) => (
+        <a href={n.href} class="font-sans text-sm tracking-wide transition-colors text-ivory/75 hover:text-ivory header-nav-link">
+          <span class="editorial-link">{n.label}</span>
+        </a>
+      ))}
+    </nav>
+
+    <a href="/contact" class="hidden md:inline-flex btn-editorial header-cta" style="color: var(--color-ivory)">
+      Visiter →
+    </a>
+
+    <button id="mobile-menu-toggle" aria-label="Menu" class="md:hidden p-1">
+      <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+      <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="md:hidden bg-ivory border-t border-border hidden animate-fade-in">
+    <nav class="flex flex-col px-6 py-10 gap-6">
+      {nav.map((n) => (
+        <a href={n.href} class="font-display text-4xl text-noir mobile-menu-link">{n.label}</a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('site-header');
+  const inner = document.getElementById('site-header-inner');
+  const subtitle = document.getElementById('site-header-subtitle');
+  const navLinks = Array.from(document.querySelectorAll('.header-nav-link')) as HTMLElement[];
+  const cta = document.querySelector('.header-cta') as HTMLElement | null;
+
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  function setScrolled(scrolled: boolean) {
+    if (!header || !inner) return;
+
+    if (scrolled) {
+      header.classList.remove('bg-gradient-to-b', 'from-noir/40', 'to-transparent');
+      header.classList.add('backdrop-blur-xl', 'bg-ivory/90', 'border-b', 'border-border/60');
+      inner.classList.remove('text-ivory');
+      inner.classList.add('text-noir');
+      subtitle?.classList.remove('text-ivory/70');
+      navLinks.forEach((el) => {
+        el.classList.remove('text-ivory/75', 'hover:text-ivory');
+        el.classList.add('text-noir/65', 'hover:text-noir');
+      });
+      cta?.style.removeProperty('color');
+    } else {
+      header.classList.add('bg-gradient-to-b', 'from-noir/40', 'to-transparent');
+      header.classList.remove('backdrop-blur-xl', 'bg-ivory/90', 'border-b', 'border-border/60');
+      inner.classList.add('text-ivory');
+      inner.classList.remove('text-noir');
+      subtitle?.classList.add('text-ivory/70');
+      navLinks.forEach((el) => {
+        el.classList.add('text-ivory/75', 'hover:text-ivory');
+        el.classList.remove('text-noir/65', 'hover:text-noir');
+      });
+      if (cta) cta.style.color = 'var(--color-ivory)';
+    }
+  }
+
+  function setMenuOpen(open: boolean) {
+    if (!mobileMenu || !menuIcon || !closeIcon) return;
+    mobileMenu.classList.toggle('hidden', !open);
+    menuIcon.classList.toggle('hidden', open);
+    closeIcon.classList.toggle('hidden', !open);
+  }
+
+  let open = false;
+  setScrolled(window.scrollY > 30);
+
+  window.addEventListener('scroll', () => {
+    setScrolled(window.scrollY > 30);
+  }, { passive: true });
+
+  toggle?.addEventListener('click', () => {
+    open = !open;
+    setMenuOpen(open);
+  });
+
+  document.querySelectorAll('.mobile-menu-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      open = false;
+      setMenuOpen(false);
+    });
+  });
+</script>

@@ -1,0 +1,30 @@
+<form class="space-y-10" action="mailto:contact@maisonpatine.fr" method="post" enctype="text/plain">
+  <div class="grid md:grid-cols-2 gap-10">
+    <div class="w-full">
+      <label for="name" class="eyebrow block mb-3">Nom<span class="text-terracotta ml-1">*</span></label>
+      <input id="name" name="name" required class="w-full bg-transparent border-b border-border focus:border-noir outline-none py-3 font-serif text-lg text-noir transition-colors" />
+    </div>
+    <div class="w-full">
+      <label for="email" class="eyebrow block mb-3">Email<span class="text-terracotta ml-1">*</span></label>
+      <input id="email" name="email" type="email" required class="w-full bg-transparent border-b border-border focus:border-noir outline-none py-3 font-serif text-lg text-noir transition-colors" />
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-10">
+    <div class="w-full">
+      <label for="phone" class="eyebrow block mb-3">Téléphone</label>
+      <input id="phone" name="phone" type="tel" class="w-full bg-transparent border-b border-border focus:border-noir outline-none py-3 font-serif text-lg text-noir transition-colors" />
+    </div>
+    <div class="w-full">
+      <label for="subject" class="eyebrow block mb-3">Sujet</label>
+      <input id="subject" name="subject" placeholder="Achat · vente · estimation" class="w-full bg-transparent border-b border-border focus:border-noir outline-none py-3 font-serif text-lg text-noir transition-colors" />
+    </div>
+  </div>
+
+  <div>
+    <label for="message" class="eyebrow block mb-3">Votre message</label>
+    <textarea id="message" name="message" rows="5" required class="w-full bg-transparent border-b border-border focus:border-noir outline-none py-3 font-serif text-lg text-noir resize-none transition-colors"></textarea>
+  </div>
+
+  <button type="submit" class="btn-solid">Envoyer le message →</button>
+</form>
