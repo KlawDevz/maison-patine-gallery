@@ -2,12 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import { Star } from '../components/Star';
 import { Ornament } from '../components/Star';
+import SmartImage from '../components/site/SmartImage.astro';
 ---
 
 <Layout title="Accueil">
   <section class="relative h-screen flex items-center justify-center overflow-hidden bg-noir">
     <!-- Hero Background Image -->
-    <img src="/assets/hero.jpg" alt="Maison Patine Hero" class="absolute inset-0 w-full h-full object-cover opacity-60 grayscale-[0.2]" />
+    <SmartImage src="/assets/hero.jpg" alt="Maison Patine Hero" loading="eager" fetchpriority="high" sizes="100vw" class="absolute inset-0 w-full h-full object-cover opacity-60 grayscale-[0.2]" />
     
     <div class="relative z-10 text-center px-6 max-w-4xl">
       <div class="flex justify-center mb-8 animate-fade-in">
@@ -41,7 +42,7 @@ import { Ornament } from '../components/Star';
   <section class="py-32 px-6 lg:px-12 max-w-[1600px] mx-auto">
     <div class="grid md:grid-cols-2 gap-24 items-center">
       <div class="relative aspect-[4/5] overflow-hidden group">
-        <img src="/assets/hero-cinematic.jpg" alt="Maison Patine Cinematic" class="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0" />
+        <SmartImage src="/assets/hero-cinematic.jpg" alt="Maison Patine Cinematic" sizes="(max-width: 768px) 100vw, 50vw" class="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0" />
         <div class="absolute inset-0 ring-1 ring-inset ring-brass/30 m-8"></div>
       </div>
       

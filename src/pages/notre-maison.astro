@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Ornament, Star, Flourish } from '../components/Star';
+import SmartImage from '../components/site/SmartImage.astro';
 import { ArrowUpRight } from "lucide-react";
 ---
 
@@ -25,7 +26,7 @@ import { ArrowUpRight } from "lucide-react";
     <div class="grid md:grid-cols-12 gap-12 items-start">
       <div class="md:col-span-5">
         <div class="img-zoom aspect-[4/5] bg-muted shadow-deep frame">
-          <img src="/assets/portrait.jpg" alt="Fondatrice Maison Patine" loading="lazy" class="w-full h-full object-cover" />
+          <SmartImage src="/assets/portrait.jpg" alt="Fondatrice Maison Patine" loading="lazy" sizes="(max-width: 768px) 100vw, 45vw" class="w-full h-full object-cover" />
         </div>
         <div class="mt-4 flex justify-between font-mono text-[0.65rem] uppercase tracking-[0.25em] text-muted-foreground">
           <span>FIG. II</span>
@@ -61,7 +62,7 @@ import { ArrowUpRight } from "lucide-react";
 
   {/* MIREPOIX */}
   <section class="relative h-[80vh] min-h-[600px] overflow-hidden">
-    <img src="/assets/mirepoix.jpg" alt="Mirepoix" loading="lazy" class="absolute inset-0 w-full h-full object-cover" />
+    <SmartImage src="/assets/mirepoix.jpg" alt="Mirepoix" loading="lazy" sizes="100vw" class="absolute inset-0 w-full h-full object-cover" />
     <div class="absolute inset-0 bg-noir/65" />
     <div class="relative h-full max-w-[1600px] mx-auto px-6 lg:px-12 flex flex-col justify-center text-ivory">
       <div class="font-mono text-xs text-ivory/60 tracking-[0.3em] mb-4">— L'ancrage</div>
@@ -104,7 +105,7 @@ import { ArrowUpRight } from "lucide-react";
 
   {/* DETAIL TEXTURE */}
   <section class="relative h-[55vh] overflow-hidden">
-    <img src="/assets/gilt.jpg" alt="Détail patine dorée" loading="lazy" class="absolute inset-0 w-full h-full object-cover" />
+    <SmartImage src="/assets/gilt.jpg" alt="Détail patine dorée" loading="lazy" sizes="100vw" class="absolute inset-0 w-full h-full object-cover" />
     <div class="absolute inset-0 bg-noir/35" />
     <div class="relative h-full max-w-[1600px] mx-auto px-6 lg:px-12 flex items-center justify-end">
       <p class="font-serif italic text-3xl md:text-5xl text-ivory max-w-xl text-right leading-tight">

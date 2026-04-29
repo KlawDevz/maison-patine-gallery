@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Ornament, Star } from '../components/Star';
+import SmartImage from '../components/site/SmartImage.astro';
 import { ArrowUpRight } from "lucide-react";
 
 const univers = [
@@ -61,7 +62,7 @@ const univers = [
         <div class="md:col-span-6 relative">
           <div class="absolute -top-12 -left-2 numero z-0">{u.n}</div>
           <div class="relative img-zoom aspect-[4/5] bg-muted frame shadow-deep z-10">
-            <img src={u.img} alt={u.title} loading="lazy" class="w-full h-full object-cover" />
+            <SmartImage src={u.img} alt={u.title} loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" class="w-full h-full object-cover" />
           </div>
           <div class="mt-4 flex justify-between font-mono text-[0.65rem] uppercase tracking-[0.25em] text-muted-foreground">
             <span>FIG. {u.n}</span>
@@ -96,11 +97,11 @@ const univers = [
       </h2>
     </div>
     <div class="grid grid-cols-12 gap-4 md:gap-6">
-      <div class="col-span-6 md:col-span-4 img-zoom aspect-[3/4] frame"><img src="/assets/vase.jpg" alt="" loading="lazy" class="w-full h-full object-cover" /></div>
-      <div class="col-span-6 md:col-span-4 img-zoom aspect-[3/4] frame md:translate-y-12"><img src="/assets/chair.jpg" alt="" loading="lazy" class="w-full h-full object-cover" /></div>
-      <div class="col-span-12 md:col-span-4 img-zoom aspect-[3/4] frame"><img src="/assets/gilt.jpg" alt="" loading="lazy" class="w-full h-full object-cover" /></div>
-      <div class="col-span-6 md:col-span-6 img-zoom aspect-[4/3] frame md:-translate-y-8"><img src="/assets/portrait.jpg" alt="" loading="lazy" class="w-full h-full object-cover" /></div>
-      <div class="col-span-6 md:col-span-6 img-zoom aspect-[4/3] frame"><img src="/assets/texture-1.jpg" alt="" loading="lazy" class="w-full h-full object-cover" /></div>
+      <div class="col-span-6 md:col-span-4 img-zoom aspect-[3/4] frame"><SmartImage src="/assets/vase.jpg" alt="Vase ancien" loading="lazy" sizes="(max-width: 768px) 50vw, 33vw" class="w-full h-full object-cover" /></div>
+      <div class="col-span-6 md:col-span-4 img-zoom aspect-[3/4] frame md:translate-y-12"><SmartImage src="/assets/chair.jpg" alt="Chaise d'époque" loading="lazy" sizes="(max-width: 768px) 50vw, 33vw" class="w-full h-full object-cover" /></div>
+      <div class="col-span-12 md:col-span-4 img-zoom aspect-[3/4] frame"><SmartImage src="/assets/gilt.jpg" alt="Détail doré" loading="lazy" sizes="(max-width: 768px) 100vw, 33vw" class="w-full h-full object-cover" /></div>
+      <div class="col-span-6 md:col-span-6 img-zoom aspect-[4/3] frame md:-translate-y-8"><SmartImage src="/assets/portrait.jpg" alt="Portrait boutique" loading="lazy" sizes="(max-width: 768px) 50vw, 50vw" class="w-full h-full object-cover" /></div>
+      <div class="col-span-6 md:col-span-6 img-zoom aspect-[4/3] frame"><SmartImage src="/assets/texture-1.jpg" alt="Texture patinée" loading="lazy" sizes="(max-width: 768px) 50vw, 50vw" class="w-full h-full object-cover" /></div>
     </div>
   </section>
 
